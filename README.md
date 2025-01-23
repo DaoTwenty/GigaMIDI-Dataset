@@ -1,7 +1,6 @@
-<p align="center">
-  # GigaMIDI Dataset 
-</p>
+# GigaMIDI Dataset 
 
+\\
 ![GigaMIDI Logo](./Giga_MIDI_Logo_Final.png)
 
 ## Summary 
