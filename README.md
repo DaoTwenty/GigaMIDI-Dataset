@@ -6,6 +6,28 @@
 ## Summary 
 Research in artificial intelligence applications in music computing has gained significant traction with the progress of deep learning. Musical instrument digital interface (MIDI) data and its associated metadata are fundamental for the advancement of models that execute tasks such as music generation and transcription with optimal efficiency and high-performance quality. The majority of the public music datasets contain audio data, and symbolic music datasets are comparatively small. However, MIDI data presents advantages over audio, such as providing an editable version of musical content independent of its sonic rendering. MIDI data can be quantized or interpreted with variations in micro-timing and velocity, but there is only a limited amount of metadata and algorithms to differentiate expressive symbolic music data performed by a musician from non-expressive data that can be assimilated into music scores. To address these challenges, we present the GigaMIDI dataset, a comprehensive corpus comprising over 1.43M MIDI files, 5.3M tracks, and 1.8B notes, along with annotations for loops and metadata for expressive performance detection. To detect expressiveness, which tracks reflect human interpretation, we introduced a new heuristic called note onset median metric level (NOMML), which allowed us to identify with 100\% accuracy that 31\% of GigaMIDI tracks are expressive. Detecting loops, or repetitions of musical patterns, presents a challenge when tracks exhibit expressive timing variations, as repeated patterns may not be strictly identical. To address this issue, we mark MIDI loops for non-expressive music tracks, which allows us to identify 7M loops. The GigaMIDI dataset is accessible for research purposes on the Hugging Face hub [https://huggingface.co/datasets/Metacreation/GigaMIDI] in a user-friendly way for convenience and reproducibility.
 
+## GigaMIDI Dataset Version Update 
+Currently, we provide two versions of the GigaMIDI dataset: the first, in parquet format, is optimized for efficiency and integrates 
+seamlessly with Python MIDI parsing libraries such as Symusic and the MIDI tokenization library MIDITok. 
+The second version consists of raw MIDI files along with a CSV file. 
+We are excited to announce the release of version 1.0 of the GigaMIDI dataset (released on February 7th, 2025). 
+We are actively refining the dataset to improve its usability, adding new musical features, and expanding it with additional subsets. 
+Stay tuned for more exciting updates coming throughout 2025!
+
+### Citation/Reference
+
+If you use the GigaMIDI dataset or any part of this project, please cite the following paper:
+
+```bibtex
+@article{GigaMidi2025Lee,
+  title = {The GigaMIDI Dataset with Features for Expressive Music Performance Detection},
+  author = {Lee, Keon Ju M. and Ens, Jeff and Adkins, Sara and Sarmento, Pedro and Barthet, Mathieu and Pasquier, Philippe},
+  journal = {Transactions of the International Society for Music Information Retrieval},
+  year = {2025},
+  publisher = {Ubiquity Press}
+}
+```
+
 ## Repository Layout
 
 [**/GigaMIDI**](./GigaMIDI): Code for creating the full GigaMIDI dataset from
