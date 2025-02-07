@@ -19,12 +19,13 @@ Stay tuned for more exciting updates coming throughout 2025!
 If you use the GigaMIDI dataset or any part of this project, please cite the following paper:
 
 ```bibtex
-@article{GigaMidi2025Lee,
-  title = {The GigaMIDI Dataset with Features for Expressive Music Performance Detection},
-  author = {Lee, Keon Ju M. and Ens, Jeff and Adkins, Sara and Sarmento, Pedro and Barthet, Mathieu and Pasquier, Philippe},
-  journal = {Transactions of the International Society for Music Information Retrieval},
-  year = {2025},
-  publisher = {Ubiquity Press}
+@article{lee2024gigamidi,
+  title={The GigaMIDI Dataset with Features for Expressive Music Performance Detection},
+  author={Lee, KJM and Ens, J and Adkins, S and Sarmento, P and Barthet, M and Pasquier, P},
+  journal={Transactions of the International Society for Music Information Retrieval},
+  year={2024},
+  publisher={Ubiquity Press},
+  doi={10.5334/tismir.203}
 }
 ```
 
