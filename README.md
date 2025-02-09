@@ -104,6 +104,11 @@ python nomml.py [-h] --folder FOLDER [--force] [--nthreads NTHREADS]
 <br />
 Note: If you run the code succesfully, it will generate .JSON file with appropriate metadata.
 
+The metadata median metric depth corresponds to the Note Onset Median Metric Level (NOMML). 
+Please refer to the latest information below, as this repository was intended to be temporary during the anonymous peer-review process 
+of the academic paper. Based on our experiments, tracks at levels 0-11 can be classified as non-expressive, while level 12 indicates 
+expressive MIDI tracks. Note that this classification applies at the track level, not the file level.
+
 ## Pipeline Configuration
 
 The following pipeline configuration was determined through hyperparameter tuning using leave-one-out cross-validation and GridSearchCV for the logistic regression model:
