@@ -17,7 +17,7 @@ Stay tuned for more exciting updates coming throughout 2025!
 ### Citation/Reference
 
 If you use the GigaMIDI dataset or any part of this project, please cite the following paper:
-
+https://transactions.ismir.net/articles/10.5334/tismir.203 
 ```bibtex
 @article{lee2024gigamidi,
   title={The GigaMIDI Dataset with Features for Expressive Music Performance Detection},
