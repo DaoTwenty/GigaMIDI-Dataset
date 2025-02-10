@@ -23,7 +23,7 @@ If you use the GigaMIDI dataset or any part of this project, please cite the fol
   title={The GigaMIDI Dataset with Features for Expressive Music Performance Detection},
   author={Lee, KJM and Ens, J and Adkins, S and Sarmento, P and Barthet, M and Pasquier, P},
   journal={Transactions of the International Society for Music Information Retrieval},
-  year={2024},
+  year={2025},
   publisher={Ubiquity Press},
   doi={10.5334/tismir.203}
 }
