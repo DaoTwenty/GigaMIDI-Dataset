@@ -21,11 +21,12 @@ https://transactions.ismir.net/articles/10.5334/tismir.203
 ```bibtex
 @article{lee2025gigamidi,
   title={The GigaMIDI Dataset with Features for Expressive Music Performance Detection},
-  author={Lee, KJM and Ens, J and Adkins, S and Sarmento, P and Barthet, M and Pasquier, P},
-  journal={Transactions of the International Society for Music Information Retrieval},
-  year={2025},
-  publisher={Ubiquity Press},
-  doi={10.5334/tismir.203}
+  author={Lee, Keon Ju Maverick and Ens, Jeff and Adkins, Sara and Sarmento, Pedro and Barthet, Mathieu and Pasquier, Philippe},
+  journal={Transactions of the International Society for Music Information Retrieval (TISMIR)},
+  volume={8},
+  number={1},
+  pages={1--19},
+  year={2025}
 }
 ```
 
