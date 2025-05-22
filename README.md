@@ -130,7 +130,7 @@ Pipeline(steps=[('scaler', StandardScaler(with_std=False)),
 
 # Expressive Loop Detection Pipeline
 
-This repository contains a highly parallelized Python pipeline for detecting both **non-expressive** (hard-match) and **expressive** (soft-count) loops in large MIDI datasets. Built on the GigaMIDI `loops_nomml` library and Symusic for MIDI parsing, it uses `joblib` to distribute work across all available CPU cores. The workflow periodically writes out **checkpoint** CSVs (every 500 000 files) and produces a final, aggregated result.
+This repository contains a highly parallelized Python pipeline for detecting both **non-expressive** (hard-match) and **expressive** (soft-count) loops in large MIDI datasets. Built on the GigaMIDI `loops_nomml` library and Symusic for MIDI parsing, it uses `joblib` to distribute work across all available CPU cores. The workflow periodically writes out **checkpoint** CSVs (every 500 000 files) and produces a final, aggregated result. The code is available in the file named Expressive music loop detector-NOMML12.ipynb.
 
 ---
 
