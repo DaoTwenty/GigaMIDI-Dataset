@@ -128,6 +128,162 @@ Pipeline(steps=[('scaler', StandardScaler(with_std=False)),
                                     tol=0.1))])
 ```
 
+# Expressive Loop Detection Pipeline
+
+This repository contains a highly parallelized Python pipeline for detecting both **non-expressive** (hard-match) and **expressive** (soft-count) loops in large MIDI datasets. Built on the GigaMIDI `loops_nomml` library and Symusic for MIDI parsing, it uses `joblib` to distribute work across all available CPU cores. The workflow periodically writes out **checkpoint** CSVs (every 500 000 files) and produces a final, aggregated result.
+
+---
+
+## 🚀 Key Features
+
+- **Hard-match detection**  
+  Finds exact, bar-aligned pitch-set repeats.  
+- **Soft-count detection**  
+  Captures expressive loops by combining pitch overlap, velocity similarity, and micro-timing tolerance.  
+- **Loopability scoring**  
+  A single metric blending the length of the longest repeat with overall repetition density.  
+- **Scalable batch processing**  
+  Checkpoints output every 500 000 files (`loops_checkpoint_1.csv`, `loops_checkpoint_2.csv`, …).  
+- **Full parallelization**  
+  Leverages `joblib.Parallel` to utilize all CPU cores for maximum throughput.
+
+---
+
+## 🔧 Prerequisites
+
+- **Python 3.8+**  
+- **Symusic** for MIDI I/O  
+- **GigaMIDI `loops_nomml`** module (place alongside this repo)  
+- Install required packages:
+  ```bash
+  pip install numpy pandas joblib tqdm
+
+
+---
+
+## 📦 Installation
+
+1. Clone this repo alongside your local `loops_nomml` checkout:
+
+   ```bash
+   git clone https://github.com/YourUser/expressive-loop-detect.git
+   cd expressive-loop-detect
+   ```
+2. (Optional) Create & activate a virtual environment:
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+---
+
+## ⚙️ Usage
+
+1. **Prepare your CSV**
+   Place your input CSV (default name:
+   `Final_GigaMIDI_Loop_V2_path-instrument-NOMML-type.csv`) in the working directory. It must have:
+
+   | Column      | Description                                                       |
+   | ----------- | ----------------------------------------------------------------- |
+   | `file_path` | Path to each `.mid` or `.midi` file                               |
+   | `NOMML`     | Python list of per-track expressiveness flags (e.g. `[12,2,4,…]`) |
+
+2. **Configure parameters**
+   At the top of `detect_loops.py`, you can adjust:
+
+   * `melodic_tau`  (default `0.3`): similarity threshold for melodic tracks
+   * `drum_tau`     (default `0.1`): threshold for drum tracks
+   * `chunk_size`   (default `500_000`): number of files per checkpoint
+   * Bars are quantized every 4 beats; min/max loop lengths and density filters live in the `get_valid_loops` call.
+
+3. **Run the detector**
+
+   ```bash
+   python detect_loops.py
+   ```
+
+   Or open the Jupyter notebook:
+
+   ```bash
+   jupyter notebook detect_loops.ipynb
+   ```
+
+   The script will:
+
+   * Read the CSV of file paths
+   * Process MIDI files in parallel, chunk by chunk
+   * Save checkpoint CSVs named `loops_checkpoint_1.csv`, `loops_checkpoint_2.csv`, …
+   * After all chunks, combine results into one DataFrame and save `loops_full_output.csv`
+
+---
+
+## 📊 Output
+
+* **Checkpoint CSVs** (`loops_checkpoint_<n>.csv`): one row per MIDI file in that chunk, with columns:
+
+  * `file_path`
+  * `track_idx` (list of track indices with detected loops)
+  * `MIDI program number` (list)
+  * `instrument_group` (list of GM groups or “Drums”)
+  * `loopability` (list of floats)
+  * `start_tick`, `end_tick` (lists of integers)
+  * `duration_beats` (list of floats)
+  * `note_density` (list of floats)
+
+* **Full output** (`loops_full_output.csv`): concatenation of all checkpoint rows.
+
+**Example to load with correct list parsing**:
+
+```python
+import pandas as pd
+
+converters = { 
+  'track_idx': eval,
+  'MIDI program number': eval,
+  'instrument_group': eval,
+  'loopability': eval,
+  'start_tick': eval,
+  'end_tick': eval,
+  'duration_beats': eval,
+  'note_density': eval
+}
+
+df = pd.read_csv("loops_full_output.csv", converters=converters)
+```
+| Column                   | Type           | Description                                 |
+| ------------------------ | -------------- | ------------------------------------------- |
+| `file_path`              | string         | Original MIDI filepath                      |
+| `track_idx`              | list of ints   | Indices of tracks where loops were detected |
+| `MIDI program number`    | list of ints   | Corresponding MIDI program codes            |
+| `instrument_group`       | list of strs   | GM group (or “Drums”) for each loop         |
+| `loopability`            | list of floats | Loopability score per detected loop         |
+| `start_tick`, `end_tick` | list of ints   | Loop boundaries (MIDI ticks)                |
+| `duration_beats`         | list of floats | Loop lengths in beats                       |
+| `note_density`           | list of floats | Active-notes-per-beat density per loop      |
+
+---
+
+## 📝 Troubleshooting
+
+* **No loops found**: try lowering `melodic_tau` or relaxing `min_rep_beats`/`min_beats`.
+* **`IndexError` in beat-duration**: the script patches `get_duration_beats` for safety.
+* **Performance issues**: set `n_jobs` in `Parallel(...)` to fewer cores or reduce `chunk_size`.
+
+---
+
+## 🤝 Contributing
+
+1. Fork this repo
+2. Create a feature branch
+3. Submit a pull request
+
+---
+
+
+
+
 ## Acknowledgement
 We gratefully acknowledge the support and contributions that have directly or indirectly aided this research. This work was supported in part by funding from the Natural Sciences and Engineering Research Council of Canada (NSERC) and the Social Sciences and Humanities Research Council of Canada (SSHRC). We also extend our gratitude to the School of Interactive Arts and Technology (SIAT) at Simon Fraser University (SFU) for providing resources and an enriching research environment. Additionally, we thank the Centre for Digital Music (C4DM) at Queen Mary University of London (QMUL) for fostering collaborative opportunities and supporting our engagement with interdisciplinary research initiatives.  
 
