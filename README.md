@@ -10,7 +10,7 @@ Research in artificial intelligence applications in music computing has gained s
 Currently, we provide two versions of the GigaMIDI dataset: the first, in parquet format, is optimized for efficiency and integrates 
 seamlessly with Python MIDI parsing libraries such as Symusic and the MIDI tokenization library MIDITok. 
 The second version consists of raw MIDI files along with a CSV file. 
-We are excited to announce the release of version 1.0 of the GigaMIDI dataset (released on February 7th, 2025). 
+We are excited to announce the release of version 1.0 of the GigaMIDI dataset (released on February 7th, 2025) and with our new paper we release version 1.1 on Hugging Face Hub on May 22nd, 2025, with our novel expressive loop detection method with its use case: synthetic loop dataset using the adapted MIDI-GPT system. 
 We are actively refining the dataset to improve its usability, adding new musical features, and expanding it with additional subsets. 
 Stay tuned for more exciting updates coming throughout 2025!
 
@@ -38,8 +38,8 @@ data set using the `datasets` library
 
 [**/loops_nomml**](./loops_nomml): Source files for loop detection algorithm 
 and expressive performance detection algorithm
-
-[**Expressive Loop Detector**](Expressive music loop detector-NOMML12.ipynb): code for the expressive loop detection method and instructions are available in the later section of this readme file. 
+Expressive music loop detector-NOMML12.ipynb
+[**Expressive Loop Detector**](Expressive%20music%20loop%20detector-NOMML12.ipynb): code for the expressive loop detection method and instructions are available in the later section of this readme file. 
 
 [**/scripts**](./scripts): Scripts and code notebooks for analyzing the 
 GigaMIDI dataset and the loop dataset
