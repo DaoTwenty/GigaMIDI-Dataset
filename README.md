@@ -38,7 +38,8 @@ data set using the `datasets` library
 
 [**/loops_nomml**](./loops_nomml): Source files for loop detection algorithm 
 and expressive performance detection algorithm
-Expressive music loop detector-NOMML12.ipynb
+
+
 [**Expressive Loop Detector**](Expressive%20music%20loop%20detector-NOMML12.ipynb): code for the expressive loop detection method and instructions are available in the later section of this readme file. 
 
 [**/scripts**](./scripts): Scripts and code notebooks for analyzing the 
