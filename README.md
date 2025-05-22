@@ -1,5 +1,5 @@
 # GigaMIDI Dataset 
-
+## The Extended GigaMIDI Dataset with Music Loop Detection and Expressive Multitrack Loop Generation
 \
 ![GigaMIDI Logo](./Giga_MIDI_Logo_Final.png)
 
