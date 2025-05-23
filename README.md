@@ -12,7 +12,7 @@ We present the extended GigaMIDI dataset (select v1.1.0), a large-scale symbolic
 
 
 For the Hugging Face Hub dataset release, we disclaim any responsibility for the misuse of this dataset.
-The subset version `v1.1.0` refers specifically to the extended GigaMIDI dataset, while version `v1.0.0` denotes the original GigaMIDI dataset (see [Lee et al., 2025](https://example.com/citation)).
+The subset version `v1.1.0` refers specifically to the extended GigaMIDI dataset, while version `v1.0.0` denotes the original GigaMIDI dataset (see [Lee et al., 2025](https://doi.org/10.5334/tismir.203)).
 New users must request access via our Hugging Face Hub page before retrieving the dataset from the following link:
 [https://huggingface.co/datasets/Metacreation/GigaMIDI/viewer/v1.1.0](https://huggingface.co/datasets/Metacreation/GigaMIDI/viewer/v1.1.0)
 
