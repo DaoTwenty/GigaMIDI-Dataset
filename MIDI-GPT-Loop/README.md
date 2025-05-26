@@ -128,7 +128,7 @@ pip freeze
 
 # 🎶 Usage
 
-First, download the model via [https://github.com/Metacreation-Lab/MMM/tree/main](https://github.com/Metacreation-Lab/MMM/tree/main) and place it in ``MMM-Loop/models``
+First, download the model via [https://1sfu-my.sharepoint.com/:u:/g/personal/pta63_sfu_ca/EbpBz06rnaJMtirT0DqvTFoBQSC2OqJ_gex88fenJ60CQQ?e=o24IMz](https://1sfu-my.sharepoint.com/:u:/g/personal/pta63_sfu_ca/EbpBz06rnaJMtirT0DqvTFoBQSC2OqJ_gex88fenJ60CQQ?e=o24IMz) and place it in ``MMM-Loop/models``
 
 ## Loop Generation
 
@@ -150,7 +150,7 @@ The SLURM batch loop can be mimicked using a local shell script or Python launch
 
 source ../MMM/.venv/bin/activate
 
-MODEL=MMM_EPL_Mistral_64500
+MODEL=MIDI-GPT-Loop-model
 TOKENIZER=MMM_epl_mistral_tokenizer_with_acs.json
 CONFIG=slurm/gen_config.json
 NOMML=0
