@@ -1,0 +1,7 @@
+[submodule "MIDI-GPT-Loop/MMM-Loop"]
+	path = MIDI-GPT-Loop/MMM-Loop
+	url = git@github.com:Metacreation-Lab/MMM-Loop.git
+[submodule "MIDI-GPT-Loop/MMM"]
+	path = MIDI-GPT-Loop/MMM
+	url = git@github.com:Metacreation-Lab/MMM.git
+	branch = Expressive-Loops
