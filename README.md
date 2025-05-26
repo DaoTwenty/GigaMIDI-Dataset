@@ -279,6 +279,12 @@ df = pd.read_csv("loops_full_output.csv", converters=converters)
 
 ---
 
+# Expressive Loop Generation
+
+Information about loop generation is found at `MIDI-GPT-Loop/README.md`
+
+---
+
 ## 🤝 Contributing
 
 1. Fork this repo
