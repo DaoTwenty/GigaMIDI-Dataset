@@ -23,10 +23,10 @@ The dependencies installed are those needed for inference as well as training, t
 
 On **Canada Canada**, load the correct modules and install dependencies:
 
-    ```bash
-    cd MMM-Loop
-    bash slurm/install.sh
-    ```
+```bash
+cd MMM-Loop
+bash slurm/install.sh
+```
 
 ## Elsewhere
 
@@ -134,7 +134,7 @@ First, download the model via [https://1sfu-my.sharepoint.com/:u:/g/personal/pta
 
 ### 🧠 Environment Variables
 
-The script expects these repositories to be present:
+The script (`slurm/ge_synthetic_data.sh`) expects these repositories to be present:
 
 ```bash
 export PYTHONPATH=$PYTHONPATH:/path/to/MMM:/path/to/MMM-Loop
@@ -148,7 +148,7 @@ The SLURM batch loop can be mimicked using a local shell script or Python launch
 ```bash
 #!/bin/bash
 
-source ../MMM/.venv/bin/activate
+source .venv/bin/activate
 
 MODEL=MIDI-GPT-Loop-model
 TOKENIZER=MMM_epl_mistral_tokenizer_with_acs.json
@@ -176,7 +176,7 @@ python -m src.generate_loops \
 
 ### 📝 Script Overview
 
-The SLURM script:
+The SLURM script (`slurm/eval_loops/sh`):
 - Aggregates CSV result files (`RESULTS_*.csv`) from a directory.
 - Merges them into a single `RESULTS.csv`.
 - Runs the evaluation script via Python: `src.evaluate`.
@@ -209,7 +209,27 @@ done
 
 # Run evaluation script
 python -m src.evaluate --source "$SOURCE/$LABEL"
+```
 
+## Visualisation
+
+Create Cross-entropy graph of the evaluation (`slurm/plot_results.sh`)
+
+```bash
+#!/bin/bash
+
+SOURCE="../SYNTHETIC_DATA"
+LABEL="V1"
+INPUT_DIR="$SOURCE/$LABEL"
+
+PLOT_ARGS=" \
+    --input $INPUT_DIR \
+    --output $INPUT_DIR \
+    "
+
+source .venv/bin/activate
+
+python -m src.plot_results $PLOT_ARGS
 ```
 
 ### 🧾 Output
