@@ -169,7 +169,7 @@ python -m src.generate_loops \
     --nomml $EFFECTIVE_NOMML \
     --output_folder $OUTPUT \
     --label $LABEL \
-    --rank 0 &
+    --rank 0
 ```
 
 ## 📈 Loop Evaluation
@@ -235,3 +235,25 @@ python -m src.plot_results $PLOT_ARGS
 ### 🧾 Output
 
 Results are merged to: `SYNTHETIC_DATA/V1/RESULTS.csv`
+
+## ✂️ Trimming Loops
+
+It is possible to trim the generated MIDI files to extract the loops only
+
+```bash
+#!/bin/bash
+
+SOURCE="../SYNTHETIC_DATA"
+LABEL="V1"
+INPUT_DIR="$SOURCE/$LABEL"
+OUTPUT_DIR="../LOOPS_ONLY"
+
+ARGS=" \
+    --input $INPUT_DIR \
+    --output $OUTPUT_DIR \
+    "
+
+source .venv/bin/activate
+
+python -m src.trim $ARGS
+```
