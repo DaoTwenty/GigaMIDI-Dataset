@@ -39,11 +39,12 @@ https://transactions.ismir.net/articles/10.5334/tismir.203
 source files, and README with example code for loading and processing the 
 data set using the `datasets` library
 
-[**/loops_nomml**](./loops_nomml): Source files for loop detection algorithm 
+[**/loops_nomml**](./loops_nomml): Source files for non-expressive loop detection algorithm 
 and expressive performance detection algorithm
 
+[**Expressive Loop Detector**](Expressive%20music%20loop%20detector-NOMML12.ipynb): code for the expressive loop detection method (in the .ipynb file) and instructions are available in the later section of this readme file. 
 
-[**Expressive Loop Detector**](Expressive%20music%20loop%20detector-NOMML12.ipynb): code for the expressive loop detection method and instructions are available in the later section of this readme file. 
+[**Expressive Loop Generation**](https://github.com/Metacreation-Lab/GigaMIDI-Dataset/tree/main/MIDI-GPT-Loop): code for the expressive loop generation and instructions are available in the hyperlink which connects to the readme file. 
 
 [**/scripts**](./scripts): Scripts and code notebooks for analyzing the 
 GigaMIDI dataset and the loop dataset
